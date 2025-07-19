@@ -235,3 +235,99 @@ Official React Router Documentation - https://reactrouter.com/start/declarative/
 
 ### Congratulations! You’ve completed Week 1 Setup.
 
+### Week 2 
+
+We did use Reusable Component and Set up the React Router Dom in 2nd week.
+If you already completed the React Router Setup, well you are off.
+We will discuss more on working on using the Reusuable components and Getting data from API.
+We will create cardComponent to display on the Product page which would be resuable.
+
+### Check Shop Page for Week 2 Assignment of using FakeStoreAPI and reusable component.
+We use useState hook  to store products we get from the API in our component state so they can be used for rendering.
+Might be little different in jsx, the code is in typescript.
+```bash
+const [product, setProduct] = useState<Product[]>([]); # This is in the typescript
+```
+```bash
+const [product, setProduct] = useState([]); # This is in the javascript
+```
+We used the useEffect to fetch the product. Inside, we define an async function fetchProduct that:
+
+Calls the API using fetch().
+
+Converts the response to JSON.
+
+Updates the state using setProduct(data) with the fetched products.
+
+The empty dependency array [] ensures this runs only once when the page loads.
+
+Displaying data using Reusable component
+```bash
+{product.map((product) => (
+    ...
+    <CustomCard
+        title={product.title}
+        price={product.price}
+        image={product.image}
+        description={product.description}
+        btnName="Add to Cart"
+    />
+))}
+```
+ We used the map function to loop through the products.
+
+ ### Helpful Links for Week Two
+
+Official React UseEffect Documentation - https://react.dev/reference/react/useEffect
+
+Official React UseEffect Documentation - https://react.dev/reference/react/useState
+
+FakeStoreApi: https://fakestoreapi.com/
+
+MDN Documentation for Js: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+
+
+ ### Congratulations You completed Week 2 Assignment
+
+ ### Week 3
+In Week three We learn about UseContext and useNavigate Hook.
+
+useNavigate is a hook from React Router DOM that allows us to navigate programmatically from one page to another in our app.
+It works similarly to how we navigate using the to="/path" prop in the Navbar, with routes defined in App.tsx.
+However, with useNavigate, we can trigger navigation inside a function (for example, after a button click or form submission).
+You can see a full code implementation in Home.tsx in this project for reference.
+
+```bash
+# Relevant Code only here
+const navigate = useNavigate();
+
+  const handleShopPage = ()=>{
+    navigate('/shop');
+    
+  }
+   <button className="btn btn-primary" onClick = {handleShopPage}>Shop Now</button>
+
+  ```
+  UseContext
+  useContext provides central (universal) access to an object across your React app without prop drilling.
+  We will use it to implement dark and light themes in our project.
+
+  **Prop Drilling Analogy:**
+  Imagine you are at a pizza shop and want chili flakes, but they are on the other side of the table. Each person has to pass them down the line to you without using them themselves—this is prop drilling.
+ Now, imagine everyone has chili flakes in front of them and can use them whenever needed without asking others—this is what the Context API does in React.
+
+ **You can find the code implementation in the context folder and App.tsx in this project.**
+
+  ### Helpful Links for Week Three
+
+Official React UseEffect Documentation -https://react.dev/reference/react/useContext
+
+Youtube Video: https://youtu.be/coM0JK6o3mo?si=1yOC9uLbgTuNY09_
+
+MDN Docs for destructuring and Js Concepts: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+UseNavigate official Documentation: https://reactrouter.com/api/hooks/useNavigate
+
+### Congratulation You finished Week 3
+
